@@ -7,127 +7,171 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(to bottom, #89f7fe, #66a6ff);
-    text-align: center;
     color: #1a1a1a;
     margin: 0;
     padding: 0;
 }
-h1, h2 {
-    margin: 20px 0;
+header {
+    text-align: center;
+    padding: 30px 20px;
 }
-.container {
-    width: 90%;
+h1 {
+    font-size: 36px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+h2 {
+    color: #0b3d91;
+    margin-top: 30px;
+}
+section {
+    padding: 20px;
+    max-width: 900px;
     margin: auto;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+p {
+    line-height: 1.6;
+    font-size: 18px;
+}
+ul {
+    margin-left: 20px;
+    font-size: 18px;
 }
 .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    margin-top: 15px;
 }
 .card {
-    width: 180px;
-    background: white;
+    width: 160px;
+    background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     cursor: pointer;
+    padding: 10px;
+    text-align: center;
     transition: transform 0.3s;
-    padding: 15px;
     animation: float 2s infinite;
 }
-.card:hover { transform: scale(1.05); }
-.card img {
-    width: 80px;
-    margin-bottom: 10px;
+.card:hover {
+    transform: scale(1.05);
 }
-.result {
-    font-size: 20px;
-    margin-top: 20px;
-    min-height: 40px;
+.card img {
+    width: 70px;
+    margin-bottom: 8px;
 }
 @keyframes float {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
     100% { transform: translateY(0); }
 }
-.info-box {
-    background: rgba(255,255,255,0.8);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: left;
+.result {
+    font-size: 20px;
+    margin-top: 15px;
+    min-height: 40px;
+    color: #0b3d91;
+    font-weight: bold;
 }
 </style>
 </head>
 <body>
 
-<h1>🎯 Nima foydali, nima zarali?</h1>
-<p>Quyidagi kartalardan tanlang va o‘zingizni sinab ko‘ring!</p>
+<header>
+    <h1>🧠 Nima foydali, nima zarali, meni kuchli qiladigan narsa</h1>
+    <p>Hayotimizdagi tanlovlarimiz bizni kuchli yoki zaif qilishi mumkin.</p>
+</header>
 
-<div class="container">
-    <div class="cards">
-        <!-- Foydali tanlovlar -->
-        <div class="card" onclick="choose(true,'foydali')">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
-            <p>Kitob o‘qish</p>
-        </div>
-        <div class="card" onclick="choose(true,'foydali')">
-            <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="">
-            <p>Sport bilan shug‘ullanish</p>
-        </div>
-        <div class="card" onclick="choose(true,'foydali')">
-            <img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" alt="">
-            <p>Ijobiy fikrlash</p>
-        </div>
+<section>
+<h2>1️⃣ Nima zararli?</h2>
+<p>Hayotimizdagi ba’zi odatlar va xatti-harakatlar bizga zarar yetkazadi. Masalan:</p>
+<ul>
+<li>📱 Telefon va ijtimoiy tarmoqlarga haddan tashqari qaramlik</li>
+<li>😡 Jahlni ichga yutish yoki boshqalarni ranjitish</li>
+<li>🍔 Nosog‘lom ovqatlanish</li>
+<li>❌ Ichki salbiy gaplar: "Mendan hech narsa chiqmaydi"</li>
+<li>🚫 Salbiy do‘stlar ta’siri</li>
+</ul>
+<p>Ushbu odatlar sizni charchatadi, ishonchni pasaytiradi va ruhiy salomatlikka zarar beradi.</p>
+</section>
 
-        <!-- Zararli tanlovlar -->
-        <div class="card" onclick="choose(false,'zararli')">
-            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="">
-            <p>Telefonni me’yoridan ortiq ishlatish</p>
-        </div>
-        <div class="card" onclick="choose(false,'zararli')">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="">
-            <p>Jahlni ichga yutish</p>
-        </div>
-        <div class="card" onclick="choose(false,'zararli')">
-            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="">
-            <p>Nosog‘lom ovqat</p>
-        </div>
+<section>
+<h2>2️⃣ Nima foydali?</h2>
+<p>Foydali odatlar bizni kuchli qiladi va hayotda muvaffaqiyatga yetaklaydi:</p>
+<ul>
+<li>📚 Kitob o‘qish va bilim olish</li>
+<li>🏃‍♂️ Sport bilan shug‘ullanish</li>
+<li>😊 Ijobiy fikrlash</li>
+<li>🎯 Maqsad qo‘yish va unga intilish</li>
+<li>🤝 Yaxshi do‘stlar va qo‘llab-quvvatlovchi kattalar</li>
+</ul>
+<p>Bu odatlar sizning ishonchingizni oshiradi, stressni kamaytiradi va ichki kuchingizni rivojlantiradi.</p>
+</section>
+
+<section>
+<h2>3️⃣ Meni kuchli qiladigan narsalar</h2>
+<p>Har bir insonning ichki resurslari bor. Ularni rivojlantirish sizni kuchli qiladi:</p>
+<ul>
+<li>⭐ Iroda va qat’iyat</li>
+<li>⭐ Sabr va chidamlilik</li>
+<li>⭐ Xatodan saboq olish</li>
+<li>⭐ Yordam so‘ray olish va o‘z fikrini ayta bilish</li>
+<li>⭐ O‘z kuchli tomonlarini anglash</li>
+</ul>
+<p>Ushbu ichki resurslarni rivojlantirish orqali siz har qanday qiyinchilikni yengib, muvaffaqiyatga erishishingiz mumkin.</p>
+</section>
+
+<section>
+<h2>4️⃣ Interaktiv tanlov</h2>
+<p>Quyidagi kartalarni tanlab, o‘zingizni sinab ko‘ring!</p>
+<div class="cards">
+    <div class="card" onclick="choose(true,'foydali')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+        <p>Kitob o‘qish</p>
     </div>
-
-    <div class="result" id="result"></div>
-
-    <h2>💪 Meni kuchli qiladigan narsa</h2>
-    <p>Quyidagi ichki kuchingizni tanlang:</p>
-    <div class="cards">
-        <div class="card" onclick="chooseStrength('Iroda')">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828840.png" alt="">
-            <p>Iroda</p>
-        </div>
-        <div class="card" onclick="chooseStrength('Sabr')">
-            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910767.png" alt="">
-            <p>Sabr</p>
-        </div>
-        <div class="card" onclick="chooseStrength('Yordam so‘ray olish')">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
-            <p>Yordam so‘ray olish</p>
-        </div>
-        <div class="card" onclick="chooseStrength('Xatodan saboq olish')">
-            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910778.png" alt="">
-            <p>Xatodan saboq olish</p>
-        </div>
+    <div class="card" onclick="choose(false,'zararli')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="">
+        <p>Telefonni haddan tashqari ishlatish</p>
     </div>
-
-    <div class="result" id="strengthResult"></div>
-
-    <div class="info-box">
-        <h2>📚 Ma’lumot</h2>
-        <p><strong>Foydali odatlar:</strong> Kitob o‘qish, sport, ijobiy fikrlash, maqsad qo‘yish, do‘stlar bilan yaxshi munosabat. Bu odatlar sizni kuchli qiladi, ishonchingizni oshiradi va stressni kamaytiradi.</p>
-        <p><strong>Zararli odatlar:</strong> Telefonni me’yoridan ortiq ishlatish, jahlni ichga yutish, nosog‘lom ovqat, salbiy do‘stlar, ichki salbiy gaplar. Bu odatlar sizni charchatadi, ishonchingizni pasaytiradi va ruhiy salomatlikka zarar beradi.</p>
-        <p><strong>Meni kuchli qiladigan narsalar:</strong> Iroda, sabr, yordam so‘ray olish, xatodan saboq olish. Bu ichki resurslar sizga hayotiy tanlovlarni ongli qilish va muvaffaqiyatga erishishga yordam beradi.</p>
+    <div class="card" onclick="choose(true,'foydali')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="">
+        <p>Sport bilan shug‘ullanish</p>
+    </div>
+    <div class="card" onclick="choose(false,'zararli')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="">
+        <p>Jahlni ichga yutish</p>
     </div>
 </div>
+<div class="result" id="result"></div>
+
+<section>
+<h2>5️⃣ Ichki kuchingizni tanlang</h2>
+<p>Quyidagi ichki kuchingizni tanlang va bilib oling:</p>
+<div class="cards">
+    <div class="card" onclick="chooseStrength('Iroda')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828840.png" alt="">
+        <p>Iroda</p>
+    </div>
+    <div class="card" onclick="chooseStrength('Sabr')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910767.png" alt="">
+        <p>Sabr</p>
+    </div>
+    <div class="card" onclick="chooseStrength('Yordam so‘ray olish')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
+        <p>Yordam so‘ray olish</p>
+    </div>
+    <div class="card" onclick="chooseStrength('Xatodan saboq olish')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910778.png" alt="">
+        <p>Xatodan saboq olish</p>
+    </div>
+</div>
+<div class="result" id="strengthResult"></div>
+</section>
 
 <script>
 let score = 0;
