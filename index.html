@@ -2,84 +2,147 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>Hayot tanlovi</title>
+<title>Nima foydali, nima zarali, meni kuchli qiladigan narsa</title>
 <style>
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  text-align: center;
-  color: white;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #89f7fe, #66a6ff);
+    text-align: center;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
 }
-h1 {
-  margin-top: 20px;
+h1, h2 {
+    margin: 20px 0;
+}
+.container {
+    width: 90%;
+    margin: auto;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 .card {
-  width: 220px;
-  background: white;
-  color: black;
-  border-radius: 20px;
-  padding: 15px;
-  margin: 20px;
-  display: inline-block;
-  cursor: pointer;
-  animation: bounce 2s infinite;
-  transition: transform 0.3s;
+    width: 180px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    padding: 15px;
+    animation: float 2s infinite;
 }
-.card:hover {
-  transform: scale(1.1);
-}
+.card:hover { transform: scale(1.05); }
 .card img {
-  width: 100px;
+    width: 80px;
+    margin-bottom: 10px;
 }
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+.result {
+    font-size: 20px;
+    margin-top: 20px;
+    min-height: 40px;
 }
-#message {
-  font-size: 22px;
-  margin-top: 20px;
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.info-box {
+    background: rgba(255,255,255,0.8);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
 }
 </style>
 </head>
 <body>
 
-<h1>🎮 Hayot tanlovi</h1>
-<p>Holat foydalimi yoki zararlimi?</p>
+<h1>🎯 Nima foydali, nima zarali?</h1>
+<p>Quyidagi kartalardan tanlang va o‘zingizni sinab ko‘ring!</p>
 
-<div class="card" onclick="choose(true)">
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-  <h3>Kitob o‘qish</h3>
+<div class="container">
+    <div class="cards">
+        <!-- Foydali tanlovlar -->
+        <div class="card" onclick="choose(true,'foydali')">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+            <p>Kitob o‘qish</p>
+        </div>
+        <div class="card" onclick="choose(true,'foydali')">
+            <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="">
+            <p>Sport bilan shug‘ullanish</p>
+        </div>
+        <div class="card" onclick="choose(true,'foydali')">
+            <img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" alt="">
+            <p>Ijobiy fikrlash</p>
+        </div>
+
+        <!-- Zararli tanlovlar -->
+        <div class="card" onclick="choose(false,'zararli')">
+            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="">
+            <p>Telefonni me’yoridan ortiq ishlatish</p>
+        </div>
+        <div class="card" onclick="choose(false,'zararli')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="">
+            <p>Jahlni ichga yutish</p>
+        </div>
+        <div class="card" onclick="choose(false,'zararli')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="">
+            <p>Nosog‘lom ovqat</p>
+        </div>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <h2>💪 Meni kuchli qiladigan narsa</h2>
+    <p>Quyidagi ichki kuchingizni tanlang:</p>
+    <div class="cards">
+        <div class="card" onclick="chooseStrength('Iroda')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828840.png" alt="">
+            <p>Iroda</p>
+        </div>
+        <div class="card" onclick="chooseStrength('Sabr')">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910767.png" alt="">
+            <p>Sabr</p>
+        </div>
+        <div class="card" onclick="chooseStrength('Yordam so‘ray olish')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
+            <p>Yordam so‘ray olish</p>
+        </div>
+        <div class="card" onclick="chooseStrength('Xatodan saboq olish')">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910778.png" alt="">
+            <p>Xatodan saboq olish</p>
+        </div>
+    </div>
+
+    <div class="result" id="strengthResult"></div>
+
+    <div class="info-box">
+        <h2>📚 Ma’lumot</h2>
+        <p><strong>Foydali odatlar:</strong> Kitob o‘qish, sport, ijobiy fikrlash, maqsad qo‘yish, do‘stlar bilan yaxshi munosabat. Bu odatlar sizni kuchli qiladi, ishonchingizni oshiradi va stressni kamaytiradi.</p>
+        <p><strong>Zararli odatlar:</strong> Telefonni me’yoridan ortiq ishlatish, jahlni ichga yutish, nosog‘lom ovqat, salbiy do‘stlar, ichki salbiy gaplar. Bu odatlar sizni charchatadi, ishonchingizni pasaytiradi va ruhiy salomatlikka zarar beradi.</p>
+        <p><strong>Meni kuchli qiladigan narsalar:</strong> Iroda, sabr, yordam so‘ray olish, xatodan saboq olish. Bu ichki resurslar sizga hayotiy tanlovlarni ongli qilish va muvaffaqiyatga erishishga yordam beradi.</p>
+    </div>
 </div>
-
-<div class="card" onclick="choose(false)">
-  <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
-  <h3>Telefonni me’yoridan ortiq ishlatish</h3>
-</div>
-
-<div class="card" onclick="choose(true)">
-  <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png">
-  <h3>Sport bilan shug‘ullanish</h3>
-</div>
-
-<div class="card" onclick="choose(false)">
-  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png">
-  <h3>Jahlni ichga yutish</h3>
-</div>
-
-<div id="message"></div>
 
 <script>
 let score = 0;
-function choose(correct) {
-  if (correct) {
-    score++;
-    document.getElementById("message").innerHTML =
-      "✅ To‘g‘ri tanlov! Bu seni kuchli qiladi 💪 <br> Ball: " + score;
-  } else {
-    document.getElementById("message").innerHTML =
-      "❌ Bu zararli tanlov. O‘ylab ko‘r! 🧠 <br> Ball: " + score;
-  }
+
+function choose(isGood, type) {
+    if(isGood){
+        score++;
+        document.getElementById("result").innerHTML = "✅ Foydali tanlov! Ball: " + score;
+    } else {
+        document.getElementById("result").innerHTML = "❌ Zararli tanlov! Ball: " + score;
+    }
+}
+
+function chooseStrength(strength){
+    document.getElementById("strengthResult").innerHTML = "💪 Sizni kuchli qiladigan narsa: " + strength;
 }
 </script>
 
