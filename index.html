@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Tanla va kuch top!</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+    text-align: center;
+}
+h1 {
+    color: #1e3a8a;
+}
+.game {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.card {
+    width: 180px;
+    height: 200px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.4s;
+    animation: float 2s infinite ease-in-out;
+}
+.card:hover {
+    transform: scale(1.1);
+}
+.card img {
+    width: 100px;
+    margin-top: 20px;
+}
+.card p {
+    font-size: 18px;
+    font-weight: bold;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.result {
+    font-size: 22px;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>🎮 Tanla va kuch top!</h1>
+<p>Rasm foydalimi yoki zararlimi? Tanlang!</p>
+
+<div class="game">
+    <div class="card" onclick="check(true)">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+        <p>Kitob o‘qish</p>
+    </div>
+
+    <div class="card" onclick="check(false)">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
+        <p>Telefonni ko‘p ishlatish</p>
+    </div>
+
+    <div class="card" onclick="check(true)">
+        <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png">
+        <p>Sport</p>
+    </div>
+
+    <div class="card" onclick="check(false)">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png">
+        <p>Jahl</p>
+    </div>
+</div>
+
+<div class="result" id="result"></div>
+
+<script>
+let score = 0;
+
+function check(isGood) {
+    if (isGood) {
+        score++;
+        document.getElementById("result").innerHTML =
+            "✅ To‘g‘ri! Seni kuchli qiladigan tanlov! 💪 Ball: " + score;
+    } else {
+        document.getElementById("result").innerHTML =
+            "❌ Bu zararli. Boshqa tanlovni sinab ko‘r! 🤔 Ball: " + score;
+    }
+}
+</script>
+
+</body>
+</html>
