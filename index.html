@@ -2,95 +2,84 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>Tanla va kuch top!</title>
+<title>Hayot tanlovi</title>
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
-    text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  text-align: center;
+  color: white;
 }
 h1 {
-    color: #1e3a8a;
-}
-.game {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+  margin-top: 20px;
 }
 .card {
-    width: 180px;
-    height: 200px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    cursor: pointer;
-    transition: transform 0.4s;
-    animation: float 2s infinite ease-in-out;
+  width: 220px;
+  background: white;
+  color: black;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 20px;
+  display: inline-block;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  transition: transform 0.3s;
 }
 .card:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 .card img {
-    width: 100px;
-    margin-top: 20px;
+  width: 100px;
 }
-.card p {
-    font-size: 18px;
-    font-weight: bold;
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-.result {
-    font-size: 22px;
-    margin-top: 20px;
+#message {
+  font-size: 22px;
+  margin-top: 20px;
 }
 </style>
 </head>
 <body>
 
-<h1>🎮 Tanla va kuch top!</h1>
-<p>Rasm foydalimi yoki zararlimi? Tanlang!</p>
+<h1>🎮 Hayot tanlovi</h1>
+<p>Holat foydalimi yoki zararlimi?</p>
 
-<div class="game">
-    <div class="card" onclick="check(true)">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-        <p>Kitob o‘qish</p>
-    </div>
-
-    <div class="card" onclick="check(false)">
-        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
-        <p>Telefonni ko‘p ishlatish</p>
-    </div>
-
-    <div class="card" onclick="check(true)">
-        <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png">
-        <p>Sport</p>
-    </div>
-
-    <div class="card" onclick="check(false)">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png">
-        <p>Jahl</p>
-    </div>
+<div class="card" onclick="choose(true)">
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+  <h3>Kitob o‘qish</h3>
 </div>
 
-<div class="result" id="result"></div>
+<div class="card" onclick="choose(false)">
+  <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
+  <h3>Telefonni me’yoridan ortiq ishlatish</h3>
+</div>
+
+<div class="card" onclick="choose(true)">
+  <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png">
+  <h3>Sport bilan shug‘ullanish</h3>
+</div>
+
+<div class="card" onclick="choose(false)">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png">
+  <h3>Jahlni ichga yutish</h3>
+</div>
+
+<div id="message"></div>
 
 <script>
 let score = 0;
-
-function check(isGood) {
-    if (isGood) {
-        score++;
-        document.getElementById("result").innerHTML =
-            "✅ To‘g‘ri! Seni kuchli qiladigan tanlov! 💪 Ball: " + score;
-    } else {
-        document.getElementById("result").innerHTML =
-            "❌ Bu zararli. Boshqa tanlovni sinab ko‘r! 🤔 Ball: " + score;
-    }
+function choose(correct) {
+  if (correct) {
+    score++;
+    document.getElementById("message").innerHTML =
+      "✅ To‘g‘ri tanlov! Bu seni kuchli qiladi 💪 <br> Ball: " + score;
+  } else {
+    document.getElementById("message").innerHTML =
+      "❌ Bu zararli tanlov. O‘ylab ko‘r! 🧠 <br> Ball: " + score;
+  }
 }
 </script>
 
